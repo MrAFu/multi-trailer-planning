@@ -1,0 +1,30 @@
+# Multi-Trailer Planning · Supplementary Experiments
+
+A bilingual companion website for **Sparse Multiple-Shooting Path Integral Planning for Online Obstacle Avoidance of Multi-Trailer Vehicles**.
+
+The page presents a complete field recording, six simulation scenarios, and inner-corner experiments with three and four passive trailers. Each card identifies whether it contains a video or a trajectory overview.
+
+## Preview
+
+Open `index.html` directly, or serve this directory:
+
+```sh
+python -m http.server 8080 --bind 127.0.0.1
+```
+
+Then visit `http://127.0.0.1:8080`. The site requires no build step or external services. Use `?lang=zh` or `?lang=en` to choose a language in a shared link.
+
+## 更新视频
+
+1. 将 MP4 视频放入 `assets/videos/`。建议使用 H.264 编码，开启 fast start，单文件小于 100 MB。
+2. 在 `media.json` 中找到相应场景，将 `type` 改为 `video`，并把 `src` 改为视频相对路径。
+3. 设置视频实际时长 `duration_seconds`，并用 `playback_label_en` / `playback_label_zh` 标明原速或实际播放倍率。
+4. 保留 `poster` 作为视频加载前的封面。上传更新后检查网页上的播放效果。
+
+`type: "image"` 显示静态轨迹总览，`type: "video"` 显示视频。英文和中文标题、说明均可在 `media.json` 中修改。网站通过 HTTP(S) 访问时会读取此文件；直接双击打开时使用 `app.js` 内置内容。
+
+## GitHub Pages
+
+In the repository, select **Settings → Pages → Deploy from a branch → main → /(root)**. All asset paths are relative, so the same files work on a project Pages URL.
+
+Only website files and presentation media belong in this repository. Research archives and raw experiment logs are maintained separately.

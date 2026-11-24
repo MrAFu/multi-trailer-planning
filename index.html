@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#A84762">
+  <meta name="description" content="Real-world video and simulation results for sparse multiple-shooting path integral planning for multi-trailer vehicles.">
+  <title>Multi-Trailer Planning · Experiments</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-repository-url="https://github.com/MrAFu/multi-trailer-planning">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to experiments</a>
+  <header class="site-header">
+    <div class="header-inner page-width">
+      <a class="wordmark" href="#top" aria-label="Multi-trailer planning home">
+        <span class="wordmark-mark" aria-hidden="true">M<span>·</span>T</span>
+        <span data-i18n="brand">Multi-trailer planning</span>
+      </a>
+      <nav class="main-nav" aria-label="Experiments" data-i18n-aria="navigation">
+        <a href="#real-world" data-i18n="navReal">Real-world</a>
+        <a href="#scenarios" data-i18n="navScenarios">Six scenarios</a>
+        <a href="#extensions" data-i18n="navExtensions">More trailers</a>
+      </nav>
+      <button class="language-switch" id="language-switch" type="button" aria-label="切换为中文" aria-pressed="false">中文</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-width" id="top" aria-labelledby="paper-title">
+      <p class="eyebrow" data-i18n="eyebrow">Supplementary experiments</p>
+      <h1 id="paper-title" data-i18n="paperTitle">Sparse Multiple-Shooting Path Integral Planning for Online Obstacle Avoidance of Multi-Trailer Vehicles</h1>
+      <p class="hero-description" data-i18n="heroDescription">Real-world video and simulation results of whole-vehicle passage in constrained spaces: obstacle avoidance, six simulated tasks, and longer trailer combinations.</p>
+      <div class="hero-bottom">
+        <p class="method-label">MPPI <span aria-hidden="true">+</span> <span data-i18n="multipleShooting">Sparse multiple shooting</span></p>
+        <a class="text-link" href="#real-world"><span data-i18n="watchExperiments">Explore the experiments</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="experiment-section real-section page-width" id="real-world" aria-labelledby="real-heading">
+      <div class="section-heading">
+        <p class="section-number" aria-hidden="true">01</p>
+        <div>
+          <h2 id="real-heading" data-i18n="realHeading">Real-world obstacle avoidance</h2>
+          <p class="section-description" data-i18n="realDescription">A tractor with two following bodies navigates static obstacles, turns, and a change in the obstacle layout.</p>
+        </div>
+      </div>
+      <div class="real-layout">
+        <figure class="media-item featured-media" data-media-id="real-world">
+          <div class="video-shell">
+            <video id="real-world-video" controls playsinline preload="none" poster="assets/posters/real-world.jpg" aria-label="Real-world obstacle avoidance">
+              <source src="assets/videos/real-world.mp4" type="video/mp4">
+              Your browser does not support embedded video. Please use the download link below.
+            </video>
+            <p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p>
+            <div class="player-error" role="alert" hidden><p data-i18n="videoError">This video could not be loaded. Try again or download the file below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div>
+          </div>
+          <figcaption class="media-meta">
+            <div class="media-info"><span class="playback-label">Original speed</span><span class="duration">1:55</span></div>
+            <a class="download-link" href="assets/videos/real-world.mp4" download><span data-i18n="download">Download video</span><span aria-hidden="true">↓</span></a>
+          </figcaption>
+        </figure>
+        <aside class="chapter-panel" aria-labelledby="moments-heading">
+          <p class="small-label" data-i18n="fullRecording">Full experiment</p>
+          <h3 id="moments-heading" data-i18n="momentsHeading">Three moments to explore</h3>
+          <p class="chapter-intro" data-i18n="momentsDescription">Select a moment to play it in the full recording.</p>
+          <div class="chapters">
+            <button class="chapter-button" type="button" data-seek="15"><span class="chapter-time">00:15</span><span class="chapter-copy"><strong data-i18n="chapterStatic">Static obstacle</strong><span data-i18n="chapterStaticDescription">Passing the fixed green stand.</span></span><span class="chapter-arrow" aria-hidden="true">↗</span></button>
+            <button class="chapter-button" type="button" data-seek="55"><span class="chapter-time">00:55</span><span class="chapter-copy"><strong data-i18n="chapterTurn">Turning</strong><span data-i18n="chapterTurnDescription">Coordinating the following bodies around the blue bin.</span></span><span class="chapter-arrow" aria-hidden="true">↗</span></button>
+            <button class="chapter-button" type="button" data-seek="100"><span class="chapter-time">01:40</span><span class="chapter-copy"><strong data-i18n="chapterDynamic">Moving obstacle</strong><span data-i18n="chapterDynamicDescription">Continuing passage after the red bin is moved.</span></span><span class="chapter-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <p class="chapter-note" data-i18n="chapterNote">Times refer to the field recording.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="experiment-section scenario-section page-width" id="scenarios" aria-labelledby="scenarios-heading">
+      <div class="section-heading">
+        <p class="section-number" aria-hidden="true">02</p>
+        <div><h2 id="scenarios-heading" data-i18n="scenariosHeading">Six simulated scenarios</h2><p class="section-description" data-i18n="scenariosDescription">Complementary tasks examine turning, passage through narrow openings, and the final configuration of the complete vehicle.</p></div>
+      </div>
+      <div class="scenario-grid">
+        <article class="media-item video-card" data-media-id="sim-inner-corner">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-inner-corner.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: Inner corner"><img class="result-image" src="assets/posters/sim-inner-corner.jpg" alt="Inner corner" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-inner-corner">Inner corner</h3><p class="media-description">Preparing the vehicle configuration for rear-trailer off-tracking through a tight turn.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-inner-corner.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="sim-narrow-gap-turn">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-narrow-gap-turn.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: Narrow-gap turn"><img class="result-image" src="assets/posters/sim-narrow-gap-turn.jpg" alt="Narrow-gap turn" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-narrow-gap">Narrow-gap turn</h3><p class="media-description">Coupling steering with complete-vehicle passage through a constricted opening.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-narrow-gap-turn.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="sim-s-corridor">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-s-corridor.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: S-shaped corridor"><img class="result-image" src="assets/posters/sim-s-corridor.jpg" alt="S-shaped corridor" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-s-corridor">S-shaped corridor</h3><p class="media-description">Coordinating all vehicle bodies along successive changes in corridor direction.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-s-corridor.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="sim-oblique-gap">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-oblique-gap.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: Oblique narrow gap"><img class="result-image" src="assets/posters/sim-oblique-gap.jpg" alt="Oblique narrow gap" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-oblique-gap">Oblique narrow gap</h3><p class="media-description">Aligning the vehicle bodies with inclined passage boundaries.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-oblique-gap.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="sim-l-parking">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-l-parking.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: L-shaped forward parking"><img class="result-image" src="assets/posters/sim-l-parking.jpg" alt="L-shaped forward parking" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-l-parking">L-shaped forward parking</h3><p class="media-description">Completing a turn and aligning the tractor and trailers at the destination.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-l-parking.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="sim-u-turn">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/sim-u-turn.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: U-turn"><img class="result-image" src="assets/posters/sim-u-turn.jpg" alt="U-turn" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-u-turn">U-turn</h3><p class="media-description">Managing the space occupied by the complete vehicle during a large direction change.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/sim-u-turn.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="experiment-section extension-section page-width" id="extensions" aria-labelledby="extensions-heading">
+      <div class="section-heading"><p class="section-number" aria-hidden="true">03</p><div><h2 id="extensions-heading" data-i18n="extensionsHeading">Longer vehicle combinations</h2><p class="section-description" data-i18n="extensionsDescription">Inner-corner experiments with three and four passive trailers examine configuration coordination as the vehicle combination grows.</p></div></div>
+      <div class="extension-grid">
+        <article class="media-item video-card" data-media-id="extension-three-trailers">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/extension-three-trailers.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: Three trailers"><img class="result-image" src="assets/posters/extension-three-trailers.jpg" alt="Three trailers" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-three-trailers">Three trailers</h3><p class="media-description">Inner-corner passage with one tractor and three passive trailers.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/extension-three-trailers.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+        <article class="media-item video-card" data-media-id="extension-four-trailers">
+          <div class="video-shell image-shell"><a class="image-link" href="assets/posters/extension-four-trailers.jpg" target="_blank" rel="noopener noreferrer" aria-label="View image: Four trailers"><img class="result-image" src="assets/posters/extension-four-trailers.jpg" alt="Four trailers" loading="lazy" decoding="async"></a><p class="player-loading" role="status" hidden data-i18n="loading">Loading video…</p><div class="player-error" role="alert" hidden><p data-i18n="imageError">This figure could not be loaded. Try again or open the image below.</p><button type="button" class="retry-button" data-i18n="retry">Try again</button></div></div>
+          <div class="card-content"><h3 class="media-title" id="title-four-trailers">Four trailers</h3><p class="media-description">Inner-corner passage with one tractor and four passive trailers.</p><div class="media-meta"><div class="media-info"><span class="playback-label">Trajectory overview</span><span class="duration" hidden></span></div><a class="download-link" href="assets/posters/extension-four-trailers.jpg" target="_blank" rel="noopener noreferrer"><span data-i18n="viewImage">View image</span><span aria-hidden="true">↗</span></a></div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <p data-i18n="footer">Supplementary experiments</p>
+    <a id="repository-link" class="text-link" hidden rel="noopener noreferrer" target="_blank"><span data-i18n="repository">GitHub repository</span><span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
+</html>

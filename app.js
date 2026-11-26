@@ -5,10 +5,10 @@
     en: {
       documentTitle: "Multi-Trailer Planning · Experiments",
       skip: "Skip to experiments", brand: "Multi-trailer planning", navigation: "Experiments",
-      navReal: "Real-world", navScenarios: "Six scenarios", navExtensions: "More trailers",
+      navReal: "Real-world", navScenarios: "Six scenarios", navDynamic: "Dynamic", navExtensions: "More trailers",
       eyebrow: "Supplementary experiments",
       paperTitle: "Sparse Multiple-Shooting Path Integral Planning for Online Obstacle Avoidance of Multi-Trailer Vehicles",
-      heroDescription: "Real-world video and simulation results of whole-vehicle passage in constrained spaces: obstacle avoidance, six simulated tasks, and longer trailer combinations.",
+      heroDescription: "Real-world and simulation videos of whole-vehicle passage in constrained spaces: six static tasks, dynamic obstacle avoidance, and longer trailer combinations.",
       multipleShooting: "Sparse multiple shooting", watchExperiments: "Explore the experiments",
       realHeading: "Real-world obstacle avoidance",
       realDescription: "A tractor with two following bodies navigates static obstacles, turns, and a change in the obstacle layout.",
@@ -20,6 +20,9 @@
       chapterNote: "Times refer to the field recording.",
       scenariosHeading: "Six simulated scenarios",
       scenariosDescription: "Complementary tasks examine turning, passage through narrow openings, and the final configuration of the complete vehicle.",
+      simulationNote: "All simulation videos play at 1× simulation time and end with a 2-second final still.",
+      dynamicHeading: "Dynamic obstacles",
+      dynamicDescription: "Moving obstacles require repeated updates to the route and the configuration of the complete vehicle.",
       extensionsHeading: "Longer vehicle combinations",
       extensionsDescription: "Inner-corner experiments with three and four passive trailers examine configuration coordination as the vehicle combination grows.",
       loading: "Loading video…",
@@ -31,10 +34,10 @@
     zh: {
       documentTitle: "多级铰接车辆规划 · 实验展示",
       skip: "跳至实验内容", brand: "多级铰接车辆规划", navigation: "实验导航",
-      navReal: "实车实验", navScenarios: "六类场景", navExtensions: "挂车扩展",
+      navReal: "实车实验", navScenarios: "六类场景", navDynamic: "动态避障", navExtensions: "挂车扩展",
       eyebrow: "论文补充实验",
       paperTitle: "面向多级铰接车辆在线避障的稀疏多重打靶路径积分规划",
-      heroDescription: "通过实车视频与仿真轨迹展示受限空间中的整车通行，包括避障、六类仿真任务，以及更长车组的挂车扩展实验。",
+      heroDescription: "通过实车与仿真视频展示受限空间中的整车通行，包括六类静态任务、动态避障，以及更长车组的挂车扩展实验。",
       multipleShooting: "稀疏多重打靶", watchExperiments: "查看实验",
       realHeading: "实车避障实验",
       realDescription: "一辆牵引车与两个后续车体，在静态障碍、转弯和局部障碍布局变化中协调通行。",
@@ -46,6 +49,9 @@
       chapterNote: "时间对应现场拍摄视频。",
       scenariosHeading: "六类仿真场景",
       scenariosDescription: "通过互补的场景，考察转弯、狭窄开口通行，以及完整车组的终端构型。",
+      simulationNote: "所有仿真视频按1倍仿真时间播放，末尾附有2秒最终画面。",
+      dynamicHeading: "动态障碍物避让",
+      dynamicDescription: "面对运动中的障碍物，持续更新行驶路径与完整车组的构型。",
       extensionsHeading: "更多级挂车的车组扩展",
       extensionsDescription: "一拖三与一拖四的内切弯实验，考察车组增长后的构型协调与通行。",
       loading: "正在加载视频…",
@@ -66,15 +72,17 @@
     ["sim-oblique-gap", "Oblique narrow gap", "斜窄缝", "Aligning the vehicle bodies with inclined passage boundaries.", "协调各车体姿态与倾斜通道边界之间的几何匹配。"],
     ["sim-l-parking", "L-shaped forward parking", "L 形前向泊入", "Completing a turn and aligning the tractor and trailers at the destination.", "完成转弯，并在目标位置协调牵引车与挂车的终端构型。"],
     ["sim-u-turn", "U-turn", "U 形转弯", "Managing the space occupied by the complete vehicle during a large direction change.", "在较大行进方向变化中协调完整车组的占用空间。"],
+    ["sim-dynamic-visible", "Dynamic avoidance", "动态避障", "Updating whole-vehicle motion using up to 360 currently visible obstacle points.", "依据当前可见的最多360个障碍点更新完整车组的运动。"],
+    ["sim-dynamic-visible-alt", "Additional maneuver", "另一组避障过程", "Coordinating tractor and trailer motion using up to 360 currently visible obstacle points.", "依据当前可见的最多360个障碍点协调牵引车与后续挂车通行。"],
     ["extension-three-trailers", "Three trailers", "一拖三", "Inner-corner passage with one tractor and three passive trailers.", "一辆牵引车与三辆被动挂车的内切弯通行。"],
     ["extension-four-trailers", "Four trailers", "一拖四", "Inner-corner passage with one tractor and four passive trailers.", "一辆牵引车与四辆被动挂车的内切弯通行。"]
   ].map(([id, title_en, title_zh, description_en, description_zh, duration_seconds]) => ({
     id, title_en, title_zh, description_en, description_zh,
-    type: id === "real-world" ? "video" : "image",
-    src: id === "real-world" ? `assets/videos/${id}.mp4` : `assets/posters/${id}.jpg`, poster: `assets/posters/${id}.jpg`,
+    type: "video",
+    src: `assets/videos/${id}.mp4`, poster: `assets/posters/${id}.jpg`,
     duration_seconds: duration_seconds ?? null,
-    playback_label_en: id === "real-world" ? "Original speed" : "Trajectory overview",
-    playback_label_zh: id === "real-world" ? "原速" : "轨迹总览"
+    playback_label_en: id === "real-world" ? "Original speed" : "1× simulation time",
+    playback_label_zh: id === "real-world" ? "原速" : "1倍仿真时间"
   }));
 
   const items = [...document.querySelectorAll(".media-item")];
@@ -155,7 +163,7 @@
           visual = document.createElement("video");
           visual.controls = true;
           visual.playsInline = true;
-          visual.preload = "none";
+          visual.preload = "metadata";
           const source = document.createElement("source");
           source.type = "video/mp4";
           visual.append(source);

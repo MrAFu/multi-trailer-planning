@@ -2,7 +2,9 @@
 
 A bilingual companion website for **Sparse Multiple-Shooting Path Integral Planning for Online Obstacle Avoidance of Multi-Trailer Vehicles**.
 
-The page presents a complete field recording, six simulation scenarios, and inner-corner experiments with three and four passive trailers. Each card identifies whether it contains a video or a trajectory overview.
+The page presents 11 videos: a complete field recording, six static simulation scenarios, two dynamic-obstacle maneuvers using currently visible obstacle points, and inner-corner experiments with three and four passive trailers.
+
+The simulation clips replay recorded vehicle states at 1× simulation time, with a 2-second final still. They preserve the recorded motion and pauses; playback time is not the planner's wall-clock computation time. The field recording plays at its original speed.
 
 ## Preview
 
@@ -17,7 +19,7 @@ Then visit `http://127.0.0.1:8080`. The site requires no build step or external 
 ## 更新视频
 
 1. 将 MP4 视频放入 `assets/videos/`。建议使用 H.264 编码，开启 fast start，单文件小于 100 MB。
-2. 在 `media.json` 中找到相应场景，将 `type` 改为 `video`，并把 `src` 改为视频相对路径。
+2. 在 `media.json` 中找到相应场景，保持 `type` 为 `video`，并把 `src` 设为视频相对路径。
 3. 设置视频实际时长 `duration_seconds`，并用 `playback_label_en` / `playback_label_zh` 标明原速或实际播放倍率。
 4. 保留 `poster` 作为视频加载前的封面。上传更新后检查网页上的播放效果。
 
@@ -28,3 +30,5 @@ Then visit `http://127.0.0.1:8080`. The site requires no build step or external 
 In the repository, select **Settings → Pages → Deploy from a branch → main → /(root)**. All asset paths are relative, so the same files work on a project Pages URL.
 
 Only website files and presentation media belong in this repository. Research archives and raw experiment logs are maintained separately.
+
+Public website: https://mrafu.github.io/multi-trailer-planning/

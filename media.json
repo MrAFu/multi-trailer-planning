@@ -4,13 +4,13 @@
     "type": "video",
     "title_en": "Real-world obstacle avoidance",
     "title_zh": "实车避障实验",
-    "description_en": "A complete field recording with static-obstacle passage, turning, and a moving obstacle.",
-    "description_zh": "包含静态绕障、转弯和移动障碍通行的完整现场录像。",
-    "src": "assets/videos/real-world.mp4",
-    "poster": "assets/posters/real-world.jpg",
-    "duration_seconds": 115.2,
-    "playback_label_en": "Original speed",
-    "playback_label_zh": "原速"
+    "description_en": "Field footage with onboard visualization of static-obstacle passage, turning, and a moving obstacle, shown at 2× speed.",
+    "description_zh": "现场画面结合车载可视化，展示静态绕障、转弯及移动障碍通行，以2倍速播放。",
+    "src": "assets/videos/real-world-final.mp4",
+    "poster": "assets/posters/real-world-final.jpg",
+    "duration_seconds": 57.608821,
+    "playback_label_en": "2× speed",
+    "playback_label_zh": "2倍速"
   },
   {
     "id": "sim-inner-corner",

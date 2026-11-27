@@ -4,7 +4,7 @@ A bilingual companion website for **Sparse Multiple-Shooting Path Integral Plann
 
 The page presents 11 videos: a complete field recording, six static simulation scenarios, two dynamic-obstacle maneuvers using currently visible obstacle points, and inner-corner experiments with three and four passive trailers.
 
-The simulation clips replay recorded vehicle states at 1× simulation time, with a 2-second final still. They preserve the recorded motion and pauses; playback time is not the planner's wall-clock computation time. The field recording plays at its original speed.
+The simulation clips replay recorded vehicle states at 1× simulation time, with a 2-second final still. They preserve the recorded motion and pauses; playback time is not the planner's wall-clock computation time. The field recording combines camera footage with onboard visualization and is shown at 2× speed. Its three chapter links refer to 00:06 (static obstacle), 00:22 (turning), and 00:48 (moving obstacle) in this accelerated video. The browser player starts at its normal 1× setting because acceleration is already encoded in the file.
 
 ## Preview
 

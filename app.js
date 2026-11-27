@@ -13,11 +13,11 @@
       realHeading: "Real-world obstacle avoidance",
       realDescription: "A tractor with two following bodies navigates static obstacles, turns, and a change in the obstacle layout.",
       fullRecording: "Full experiment", momentsHeading: "Three moments to explore",
-      momentsDescription: "Select a moment to play it in the full recording.",
-      chapterStatic: "Static obstacle", chapterStaticDescription: "Passing the fixed green stand.",
+      momentsDescription: "Select a moment in the 2×-speed video.",
+      chapterStatic: "Static obstacle", chapterStaticDescription: "Passing the fixed green stand with the complete vehicle.",
       chapterTurn: "Turning", chapterTurnDescription: "Coordinating the following bodies around the blue bin.",
-      chapterDynamic: "Moving obstacle", chapterDynamicDescription: "Continuing passage after the red bin is moved.",
-      chapterNote: "Times refer to the field recording.",
+      chapterDynamic: "Moving obstacle", chapterDynamicDescription: "Continuing passage as the red bin is moved.",
+      chapterNote: "Timestamps refer to this 2×-speed video.",
       scenariosHeading: "Six simulated scenarios",
       scenariosDescription: "Complementary tasks examine turning, passage through narrow openings, and the final configuration of the complete vehicle.",
       simulationNote: "All simulation videos play at 1× simulation time and end with a 2-second final still.",
@@ -42,11 +42,11 @@
       realHeading: "实车避障实验",
       realDescription: "一辆牵引车与两个后续车体，在静态障碍、转弯和局部障碍布局变化中协调通行。",
       fullRecording: "完整实验", momentsHeading: "三个关键时刻",
-      momentsDescription: "点击下方时刻，跳转至完整视频的对应位置。",
-      chapterStatic: "静态绕障", chapterStaticDescription: "绕行固定的绿色台架。",
+      momentsDescription: "点击下方时刻，跳转至2倍速视频的对应过程。",
+      chapterStatic: "静态绕障", chapterStaticDescription: "协调完整车组绕过固定的绿色台架。",
       chapterTurn: "转弯通行", chapterTurnDescription: "协调后续车体绕过蓝色桶体。",
-      chapterDynamic: "移动障碍", chapterDynamicDescription: "红色桶体被移动后继续通行。",
-      chapterNote: "时间对应现场拍摄视频。",
+      chapterDynamic: "移动障碍", chapterDynamicDescription: "红色桶体移动时，车组继续避障通行。",
+      chapterNote: "时间点对应当前2倍速视频。",
       scenariosHeading: "六类仿真场景",
       scenariosDescription: "通过互补的场景，考察转弯、狭窄开口通行，以及完整车组的终端构型。",
       simulationNote: "所有仿真视频按1倍仿真时间播放，末尾附有2秒最终画面。",
@@ -65,7 +65,7 @@
   // These records also make the page usable when opened directly with file://.
   // A served media.json overrides individual fields without changing the layout.
   const defaults = [
-    ["real-world", "Real-world obstacle avoidance", "实车避障实验", "Static obstacles, turning, and a moving obstacle in a field experiment.", "现场实验中的静态绕障、转弯与移动障碍通行。", 115.25],
+    ["real-world", "Real-world obstacle avoidance", "实车避障实验", "Field footage and onboard visualization of static obstacles, turning, and a moving obstacle, shown at 2× speed.", "现场画面结合车载可视化，以2倍速展示静态绕障、转弯与移动障碍通行。", 57.608821],
     ["sim-inner-corner", "Inner corner", "内切弯", "Preparing the vehicle configuration for rear-trailer off-tracking through a tight turn.", "提前调整车组构型，为狭窄转弯中的后续挂车内切留出空间。"],
     ["sim-narrow-gap-turn", "Narrow-gap turn", "窄缝转弯", "Coupling steering with complete-vehicle passage through a constricted opening.", "在转向过程中协调完整车组通过狭窄开口。"],
     ["sim-s-corridor", "S-shaped corridor", "S 形通道", "Coordinating all vehicle bodies along successive changes in corridor direction.", "沿连续变化的通道方向协调各级车体运动。"],
@@ -79,10 +79,10 @@
   ].map(([id, title_en, title_zh, description_en, description_zh, duration_seconds]) => ({
     id, title_en, title_zh, description_en, description_zh,
     type: "video",
-    src: `assets/videos/${id}.mp4`, poster: `assets/posters/${id}.jpg`,
+    src: `assets/videos/${id === "real-world" ? "real-world-final" : id}.mp4`, poster: `assets/posters/${id === "real-world" ? "real-world-final" : id}.jpg`,
     duration_seconds: duration_seconds ?? null,
-    playback_label_en: id === "real-world" ? "Original speed" : "1× simulation time",
-    playback_label_zh: id === "real-world" ? "原速" : "1倍仿真时间"
+    playback_label_en: id === "real-world" ? "2× speed" : "1× simulation time",
+    playback_label_zh: id === "real-world" ? "2倍速" : "1倍仿真时间"
   }));
 
   const items = [...document.querySelectorAll(".media-item")];
